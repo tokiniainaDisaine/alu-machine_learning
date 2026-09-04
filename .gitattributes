@@ -1,0 +1,5 @@
+# Set the default behavior to automatically normalize text files to LF
+* text=auto
+
+# Force specific files (or all text files) to always checkout as LF
+* text eol=lf
