@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 
-import numpy as np
-
 def matrix_shape(matrix):
-    array = np.array(matrix)
-    return list(array.shape)
+    shape = []
+
+    while True:
+        if type(matrix[0]) == "list":
+            matrix_shape(matrix[0])
+        elif type(matrix[0]) == "int":
+            shape.insert(0, len(matrix))
+            break
+        else:
+            shape.insert(0, len(matrix))
+
+    return shape
