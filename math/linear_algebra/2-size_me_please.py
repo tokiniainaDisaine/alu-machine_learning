@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 
 def matrix_shape(matrix):
-    shape = []
+    shape = [len(matrix)]
 
-    while True:
-        if type(matrix[0]) == "list":
-            matrix_shape(matrix[0])
-        elif type(matrix[0]) == "int":
-            shape.insert(0, len(matrix))
-            break
-        else:
-            shape.insert(0, len(matrix))
+    if isinstance(matrix[0], list):
+        shape.extend(matrix_shape(matrix[0]))
 
     return shape
