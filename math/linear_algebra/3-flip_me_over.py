@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Do stuff"""
 
+
 def matrix_transpose(matrix):
     """Does stuff"""
     matrix_t = [[0 for _ in range(len(matrix))]
