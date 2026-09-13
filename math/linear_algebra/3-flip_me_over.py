@@ -7,6 +7,6 @@ def matrix_transpose(matrix):
 
     for i in range(0, len(matrix)):
         for j in range(0, len(matrix[i])):
-            matrix_t.append(matrix[i][j])
+            matrix_t[j][i] = matrix[i][j]
 
     return matrix_t
