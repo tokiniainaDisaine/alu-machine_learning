@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+"""Stuff"""
 
 
 def determinant(matrix):
+    """Stuff"""
     if type(matrix) is not list or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
     if len(matrix) > 0:
