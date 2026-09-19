@@ -2,10 +2,12 @@
 
 
 def determinant(matrix):
-    if not isinstance(matrix, list) and all(isinstance(el, list) for el in matrix):
-        raise TypeError('matrix must be a list of lists')
-    elif len(matrix) != len(matrix[0]):
-        raise ValueError('matrix must be a square matrix')
+    if type(matrix) is not list or len(matrix) == 0:
+        raise TypeError("matrix must be a list of lists")
+    if len(matrix) > 0:
+        for i in matrix:
+            if type(i) is not list:
+                raise TypeError("matrix must be a list of lists")
 
     if len(matrix) == 1 and len(matrix[0]) == 0:
         return 1
