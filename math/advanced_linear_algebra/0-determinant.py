@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import numpy as np
 
 
 def determinant(matrix):
@@ -8,7 +7,22 @@ def determinant(matrix):
     elif len(matrix) != len(matrix[0]):
         raise ValueError('matrix must be a square matrix')
 
-    np_matrix = np.array(matrix)
-    det = np.linalg.det(matrix)
-
-    return det
+    if len(matrix) == 1 and len(matrix[0]) == 0:
+        return 1
+    for i in matrix:
+        if len(i) != len(matrix):
+            raise ValueError("matrix must be a square matrix")
+    if len(matrix) == 1 and len(matrix) == 1:
+        return matrix[0][0]
+    if len(matrix) == 2:
+        return ((matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]))
+    det = []
+    for i in range(len(matrix)):
+        mini = [[j for j in matrix[i]] for i in range(1, len(matrix))]
+        for j in range(len(mini)):
+            mini[j].pop(i)
+        if i % 2 == 0:
+            det.append(matrix[0][i] * determinant(mini))
+        if i % 2 == 1:
+            det.append(-1 * matrix[0][i] * determinant(mini))
+    return sum(det)
